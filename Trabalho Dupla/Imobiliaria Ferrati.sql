@@ -1,5 +1,5 @@
-CREATE DATABASE imobiliaria_roberto;
-USE imobiliaria_roberto;
+CREATE DATABASE imobiliaria_ferrati;
+USE imobiliaria_ferrati;
 
 CREATE TABLE CLIENTE (
 id_cliente INT AUTO_INCREMENT PRIMARY KEY,
