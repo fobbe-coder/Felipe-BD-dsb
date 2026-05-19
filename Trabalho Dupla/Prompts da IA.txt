@@ -44,8 +44,8 @@ FOREIGN KEY (id_proprietario) REFERENCES PROPRIETARIO(id_proprietario)
 ); 
 
 
-lembrando que o Banco de Dados é para uma Imobiliária fictícia então não adicione nada que eu não de ordens. o adicionar os dados para as forgoten Keys (chaves estrangeiras) relacione com os dados que você utilizou nas outras tabelas exemplo: id_proprietario - use um id de cada uma dos 100 proprietarios considerando que cada proprietario tem 1 visita Segue a tabela: 
-CREATE TABLE VISITA (
+preciso que você faça entre 100-400 insert into simples para está tabela do MySQL, lembrando que o Banco de Dados é para uma Imobiliária fictícia então não adicione nada que eu não de ordens. o adicionar os dados para as forgoten Keys (chaves estrangeiras) relacione com os dados que você utilizou nas outras tabelas exemplo: id_proprietario - use um id de cada uma dos 100 clientes considerando que cada cliente pode ter entre 1-4 visitas Segue a tabela: 
+CREATE TABLE VISITA ( 
 id_visita INT AUTO_INCREMENT PRIMARY KEY,
 data_visita DATE,
 observacoes VARCHAR(200),
