@@ -629,7 +629,7 @@ INSERT INTO VISITA (data_visita, observacoes, id_cliente, id_imovel, id_corretor
 ('2026-04-07', 'Cliente realizou primeira visita.', 49, 62, 6),
 ('2026-04-08', 'Cliente achou o imovel pequeno.', 50, 64, 6),
 ('2026-04-09', 'Cliente interessado no aluguel.', 50, 66, 10),
-('2026-04-10', 'Cliente pediu desconto.', 50, 68, 10);
+('2026-04-10', 'Cliente pediu desconto.', 50, 68, 10),
 ('2026-04-11', 'Cliente interessado no apartamento.', 51, 70, 12),
 ('2026-04-12', 'Cliente gostou da localizacao.', 51, 72, 12),
 
@@ -989,3 +989,17 @@ INSERT INTO PAGAMENTO (data_pagamento, valor_pago, forma_pagamento, multa_atraso
 ('2026-04-12', 520000.00, 'Transferencia', 0.00, 'Pago', 98),
 ('2026-04-13', 1780.00, 'Pix', 0.00, 'Pago', 99),
 ('2026-04-14', 405000.00, 'Boleto', 0.00, 'Pago', 100);
+
+SELECT * FROM CLIENTE;
+
+SELECT * FROM PROPRIETARIO;
+
+SELECT * FROM CORRETOR;
+
+SELECT * FROM IMOVEL;
+
+SELECT * FROM VISITA;
+
+SELECT * FROM CONTRATO;
+
+SELECT * FROM PAGAMENTO;
