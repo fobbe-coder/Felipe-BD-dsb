@@ -1,0 +1,87 @@
+Sou um estudante do ensino médio ETEC, No curso Desenvolvimento de Sistemas, estudando Banco de Dados no MySQL no segundo ano do ensino médio, preciso que você faça 100 insert into simples para está tabela do MySQL, lembrando que o Banco de Dados é para uma Imobiliária fictícia então não adicione nada que eu não de ordens. 
+
+Ao adicionar os dados para o Atributo (Nome) coloque Nome.Sobrenome Segue a tabela:
+CREATE TABLE CLIENTE (
+id_cliente INT AUTO_INCREMENT PRIMARY KEY,
+nome VARCHAR(100) NOT NULL,
+cpf VARCHAR(14) UNIQUE NOT NULL,
+telefone VARCHAR(20),
+email VARCHAR(100),
+endereco VARCHAR(150),
+status_inadimplencia BOOLEAN DEFAULT FALSE
+);
+
+ao adicionar os dados para o Atributo (Nome) coloque Nome.Sobrenome  Segue a tabela: 
+CREATE TABLE PROPRIETARIO (
+id_proprietario INT AUTO_INCREMENT PRIMARY KEY,
+nome VARCHAR(100) NOT NULL,
+cpf VARCHAR(14) UNIQUE NOT NULL,
+telefone VARCHAR(20),
+email VARCHAR(100),
+endereco VARCHAR(150)
+);
+
+ao adicionar os dados para o Atributo (Nome) coloque Nome.Sobrenome  Segue a tabela: CREATE TABLE CORRETOR (
+id_corretor INT AUTO_INCREMENT PRIMARY KEY,
+nome VARCHAR(100) NOT NULL,
+creci VARCHAR(20) UNIQUE,
+telefone VARCHAR(20),
+email VARCHAR(100)
+); 
+
+Ao adicionar os dados para as forgoten Keys (chaves estrangeiras) relacione com os dados que você utilizou nas outras tabelas exemplo: id_proprietario - use um id de cada uma dos 100 proprietarios considerando que cada proprietario tem 1 imovel  Segue a tabela: 
+CREATE TABLE IMOVEL (
+id_imovel INT AUTO_INCREMENT PRIMARY KEY,
+tipo_imovel VARCHAR(50),
+endereco VARCHAR(150),
+cidade VARCHAR(50),
+estado VARCHAR(50),
+valor_venda DECIMAL(12,2),
+valor_aluguel DECIMAL(10,2),
+status_imovel VARCHAR(30),
+id_proprietario INT,
+FOREIGN KEY (id_proprietario) REFERENCES PROPRIETARIO(id_proprietario)
+); 
+
+
+lembrando que o Banco de Dados é para uma Imobiliária fictícia então não adicione nada que eu não de ordens. o adicionar os dados para as forgoten Keys (chaves estrangeiras) relacione com os dados que você utilizou nas outras tabelas exemplo: id_proprietario - use um id de cada uma dos 100 proprietarios considerando que cada proprietario tem 1 visita Segue a tabela: 
+CREATE TABLE VISITA (
+id_visita INT AUTO_INCREMENT PRIMARY KEY,
+data_visita DATE,
+observacoes VARCHAR(200),
+id_cliente INT,
+id_imovel INT,
+id_corretor INT,
+FOREIGN KEY (id_cliente) REFERENCES CLIENTE(id_cliente),
+FOREIGN KEY (id_imovel) REFERENCES IMOVEL(id_imovel),
+FOREIGN KEY (id_corretor) REFERENCES CORRETOR(id_corretor)
+);
+
+Ao adicionar os dados para as forgoten Keys (chaves estrangeiras) relacione com os dados que você utilizou nas outras tabelas exemplo: id_cliente - use um id de cada um dos 100 clientes considerando que cada cliente tem 1 contrato Segue a tabela: 
+CREATE TABLE CONTRATO (
+id_contrato INT AUTO_INCREMENT PRIMARY KEY,
+tipo_contrato VARCHAR(30),
+data_inicio DATE,
+data_fim DATE,
+valor_contrato DECIMAL(10,2),
+deposito DECIMAL(10,2),
+status_contrato VARCHAR(30),
+id_cliente INT,
+id_imovel INT,
+id_corretor INT,
+FOREIGN KEY (id_cliente) REFERENCES CLIENTE(id_cliente),
+FOREIGN KEY (id_imovel) REFERENCES IMOVEL(id_imovel),
+FOREIGN KEY (id_corretor) REFERENCES CORRETOR(id_corretor)
+);
+
+Ao adicionar os dados para as forgoten Keys (chaves estrangeiras) relacione com os dados que você utilizou nas outras tabelas exemplo: id_contrato - use um id de cada um dos 100 contratos considerando que cada contrato teve 1 pagamento Segue a tabela:
+CREATE TABLE PAGAMENTO (
+id_pagamento INT AUTO_INCREMENT PRIMARY KEY,
+data_pagamento DATE,
+valor_pago DECIMAL(10,2),
+forma_pagamento VARCHAR(30),
+multa_atraso DECIMAL(10,2),
+status_pagamento VARCHAR(30),
+id_contrato INT,
+FOREIGN KEY (id_contrato) REFERENCES CONTRATO(id_contrato)
+);
